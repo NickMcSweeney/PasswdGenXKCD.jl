@@ -6,4 +6,5 @@ _Lets Make Passwords Human Friendly_
 
 ## Method
 ![xkcd](https://imgs.xkcd.com/comics/password_strength.png)
-Generates passwords that resemble real words in a way that is memorable and secure.
+
+> Generates passwords that resemble real words in a way that is memorable and secure.
