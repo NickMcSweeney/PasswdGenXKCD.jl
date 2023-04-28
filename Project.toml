@@ -1,0 +1,7 @@
+name = "PasswdGenXKCD"
+uuid = "414a46c8-1add-4c16-99ab-c8edd476352b"
+authors = ["Nicholas Shindler <shindler25@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+BSON = "fbb218c0-5317-5bc6-957e-2ee96dd4b1f0"
