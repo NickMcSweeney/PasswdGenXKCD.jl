@@ -27,6 +27,6 @@ docs/site/
 # environment.
 Manifest.toml
 
-db/*
+wordlist/*
 
 # End of https://www.toptal.com/developers/gitignore/api/julia

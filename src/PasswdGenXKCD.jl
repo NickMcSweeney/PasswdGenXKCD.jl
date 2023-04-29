@@ -1,21 +1,25 @@
 module PasswdGenXKCD
+using Pkg.Artifacts
 using BSON: @load
 
 export generate
+
+rootpath = artifact"wordlist"
+list_path = joinpath(rootpath, "wordlist", "wordlist.bson")
+@load list_path wordlist
 
 function alphanumeric(count)
   String([Char(rand(0x30:0x40)) for i in 1:count])
 end
 
-function get_word(;loc="db")
-  list_path = joinpath(loc,rand(readdir(loc)))
-  @load list_path word_list
-  return split(rand(word_list))[1]
+function calc_break(word)
+  br = round(Int,length(word)*rand())
+  return (br < 2 || br > length(word)) ? calc_break(word) : br
 end
 
 function generate_word(w1, w2)
-  div1 = round(Int,length(w1)*rand())
-  div2 = round(Int,length(w2)*rand())
+  div1 = calc_break(w1)
+  div2 = calc_break(w2)
   w = w1[1:div1] * w2[div2:end]
   uppercasefirst(w)
 end
@@ -23,7 +27,7 @@ end
 function generate_password(count)
   passwd = ""
   for i in 1:count
-    passwd *= generate_word(get_word(), get_word())
+    passwd *= generate_word(rand(wordlist), rand(wordlist))
     passwd *= alphanumeric(count == 1 ? count : count - 1)
   end
   passwd

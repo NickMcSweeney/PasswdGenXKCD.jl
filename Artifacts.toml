@@ -1,0 +1,7 @@
+# a simple Artifacts.toml file
+[wordlist]
+git-tree-sha1 = "8bbed1ccf80fe22de49463d95c0e9275b46f684d"
+
+    [[wordlist.download]]
+    url = "https://github.com/NickMcSweeney/PasswdGenXKCD.jl/raw/main/wordlist.tar.gz"
+    sha256 = "ec71e7d7e5a86300a67b0471fb7d4e8695c461208e2ac3874a37bc7b9298f776"
